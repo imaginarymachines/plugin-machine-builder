@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 TOKEN=$1
-PLUGINDIR:$2
+PLUGINDIR=$2
 echo "Token $TOKEN"
 echo "PLUGINDIR $PLUGINDIR"
 echo ::set-output name=time::$time
