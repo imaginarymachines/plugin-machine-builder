@@ -16,4 +16,4 @@ jobs:
     - uses: ./
       with:
         token: 'THE-TOKEN'
-        path: ${{ github.workspace }}
+        path: ${{ github.workspace }}/builder-action-test-plugin
