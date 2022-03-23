@@ -1,10 +1,12 @@
 #!/bin/sh -l
 
-echo "Token $1"
-echo "Path $2"
+TOKEN=$1
+PLUGINDIR:$2
+echo "Token $TOKEN"
+echo "PLUGINDIR $PLUGINDIR"
 echo ::set-output name=time::$time
 
 
 npm i plugin-machine -g
-#plugin-machine plugin build --buildDir=output --pluginDir="${{ github.workspace }}" --token="$env:PLUGIN_MACHINE_TOKEN"
-#plugin-machine plugin zip --buildDir=output --pluginDir="${{ github.workspace }}" --token="$env:PLUGIN_MACHINE_TOKEN"
+plugin-machine plugin build --buildDir=output --pluginDir="$PLUGINDIR" --token="$TOKEN"
+plugin-machine plugin zip --buildDir=output --pluginDir="$PLUGINDIR" --token="$TOKEN"
