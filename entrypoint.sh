@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 TOKEN=$1
-PLUGINDIR=$2
+PLUGINDIR="/home/runner/work/plugin-machine-builder/builder-action-test-plugin/pluginMachine.json"
 echo "Token $TOKEN"
 echo "PLUGINDIR $PLUGINDIR"
 echo ::set-output name=time::$time
