@@ -15,4 +15,5 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./
       with:
-        who-to-greet: 'Roy'
+        token: 'THE-TOKEN'
+        path: ${{ github.workspace }}
