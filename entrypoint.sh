@@ -3,11 +3,12 @@
 # Setup variables
 TOKEN=$1
 PLUGINDIR=$2
-ZIPNAME="builder-action-test-plugin.zip"
+ZIPNAME=$3
 UPLOAD=0;
 
-echo "Token $TOKEN"
-echo "PLUGINDIR $PLUGINDIR"
+echo "TOKEN - $TOKEN"
+echo "PLUGINDIR- $PLUGINDIR"
+echo "ZIPNAME- $ZIPNAME"
 echo ::set-output name=time::$time
 
 # Install
