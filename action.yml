@@ -16,3 +16,6 @@ runs:
   args:
     - ${{ inputs.token }}
     - ${{ inputs.path }}
+branding:
+  icon: 'triangle'
+  color: 'blue'
