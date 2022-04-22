@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Plugin Machine
-      uses: ./
+        uses: ./
         id: plugin-machine
         with:
           token: ${{secrets.PLUGIN_MACHINE_TOKEN}}
