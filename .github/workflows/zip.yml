@@ -1,0 +1,18 @@
+name: Zip
+
+on: push
+
+
+jobs:
+  plugin-machine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Plugin Machine
+      uses: ./
+        id: plugin-machine
+        with:
+          token: ${{secrets.PLUGIN_MACHINE_TOKEN}}
+          path: ${{ github.workspace/builder-test-plugin }}
+      - name: Echo URL
+        run: echo "The URL IS ${{ steps.plugin-machine.outputs.url }}"

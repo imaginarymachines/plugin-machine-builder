@@ -1,8 +1,8 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Plugin Machine'
+description: 'Build, Zip and Upload Plugin'
 inputs:
   token:  # id of input
-    description: 'Who to greet'
+    description: 'Plugin Machine Token'
     required: true
   path:
     description: Root directory of plugin
