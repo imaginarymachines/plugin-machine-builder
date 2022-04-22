@@ -13,6 +13,6 @@ jobs:
         id: plugin-machine
         with:
           token: ${{secrets.PLUGIN_MACHINE_TOKEN}}
-          path: ${{ github.workspace/builder-test-plugin }}
+          path: ${{ github.workspace }}/builder-test-plugin
       - name: Echo URL
         run: echo "The URL IS ${{ steps.plugin-machine.outputs.url }}"
