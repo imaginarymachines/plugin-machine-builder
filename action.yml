@@ -7,19 +7,16 @@ inputs:
   path:
     description: Root directory of plugin
     required: true
-  zipname:
-    descriotion: name of zip
-    required: true
 outputs:
-  time: # id of output
-    description: 'The time'
+  url: # id of output
+    description: 'URL of uploaded plugin'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.token }}
     - ${{ inputs.path }}
-    - ${{ inputs.zipname}}
+
 branding:
   icon: 'triangle'
   color: 'blue'

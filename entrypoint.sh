@@ -3,24 +3,21 @@
 # Setup variables
 TOKEN=$1
 PLUGINDIR=$2
-ZIPNAME=$3
-UPLOAD=0;
 
 echo "TOKEN - $TOKEN"
 echo "PLUGINDIR- $PLUGINDIR"
-echo "ZIPNAME- $ZIPNAME"
-echo ::set-output name=time::$time
 
 # Install
 npm i plugin-machine -g
-## Build and ZIP
-plugin-machine plugin build --buildDir=output --pluginDir="$PLUGINDIR" --token="$TOKEN"
-plugin-machine plugin zip --buildDir=output --pluginDir="$PLUGINDIR" --token="$TOKEN"
 
+# Login
+plugin-machine login --token="$TOKEN" --ci
+# Build plugin with npm/composer as set in pluginMachine.json's build.prod key.
+plugin-machine plugin build --buildDir=output --pluginDir="$PLUGINDIR"
+# Create a zip with files/ paths set in pluginMachine.json's buildIncludes key
+plugin-machine plugin zip --buildDir=output --pluginDir="$PLUGINDIR"
+# Upload zip to Plugin Machine API
+URL="plugin-machine upload --quiet"
+echo $URL
+echo "::set-output name=url::$URL"
 ## Upload to API
-echo "Uploading $ZIPNAME"
-curl --location --request POST 'https://pluginmachine.app/api/v1/files/' \
---header 'Authorization: Bearer "$TOKEN"' \
---form 'file=@"$PLUGINDIR/$ZIPNAME"' \
---form 'name="$ZIPNAME"' \
---form 'private="false"'
